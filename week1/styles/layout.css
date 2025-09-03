@@ -19,26 +19,26 @@ body {
 
 header {
     grid-area: header;
-    background-color: #4a90e2;
+    background-color: #222;
     color: white;
     padding: 1rem;
 }
 
 main {
     grid-area: main;
+    background-color: #e0e0e0;
     padding: 1rem;
-    background-color: #f4f4f4;
 }
 
 aside {
     grid-area: aside;
+    background-color: white;
     padding: 1rem;
-    background-color: #ddd;
 }
 
 footer {
     grid-area: footer;
-    background-color: #333;
+    background-color: #222;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -61,5 +61,4 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
-
 
