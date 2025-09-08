@@ -13,27 +13,18 @@ header, main, footer {
   background-color: #e6f2ff; 
 }
 
-
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
-}
-
 section {
   padding: 1rem;
   background-color: #fff;
+  border: 2px solid #c0c6ff; 
+  border-radius: 5px;
 }
 
-
-@media screen and (min-width: 600px) {
-  h1 {
-    font-size: 2.5rem;
-    margin: 1rem;
-    color: navy;
-  }
+footer {
+  background-color: #c0c6ff;
+  text-align: center;
+  font-weight: bold;
 }
-
 
 @media screen and (min-width: 500px) {
   header {
@@ -42,6 +33,6 @@ section {
   }
   
   main {
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
   }
 }
