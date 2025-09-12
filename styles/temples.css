@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     background: #f9f9f9;
     color: #333;
@@ -12,13 +12,12 @@ body{
 }
 
 header {
-    dispaly: flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     color: white;
     background-color: #4caf50;
-
 }
 
 nav {
@@ -27,22 +26,22 @@ nav {
     gap: 0.5rem;
 }
 
-nav a{
+nav a {
     color: white;
     text-decoration: none;
     padding: 0.5rem;
 }
 
-nav a:hover{
+nav a:hover {
     background-color: #3e8241;
     border-radius: 4px;
 }
 
-#hamburger{
+#hamburger {
     font-size: 1.5rem;
     cursor: pointer;
-    background: none
-    border none;
+    background: none;
+    border: none;
     color: white;
 }
 
@@ -54,7 +53,7 @@ main {
 
 .container {
     display: grid;
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
@@ -63,7 +62,6 @@ figure {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
 }
 
 figure img {
