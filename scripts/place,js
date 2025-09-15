@@ -1,4 +1,4 @@
-// Static values
+
 const temperature = 12; // °C
 const windSpeed = 10; // km/h
 
