@@ -1,65 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South Korea</title>
-    <link rel="stylesheet" href="styles/place.css">
-    <script src="js/place.js" defer></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Korea</title>
+  <link rel="stylesheet" href="styles/place.css">
+  <script src="js/place.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>South Korea</h1>
-    </header>
+  <header>
+    <h1>South Korea</h1>
+  </header>
 
-    <section class="seoul">
-        <picture>
-            <img src="images/Hanriver.jpg" alt="Han River in Seoul" class="desktop">
-            <img src="images/Hanriver-mobile.jpg" alt="Han River in Seoul" class="mobile">
-        </picture>
-    </section>
+  <section class="hero">
+    <img src="images/Hanriver.jpg" alt="Han River in Seoul" class="hero-img">
 
-    <main>
-        <section class="data">
-            <h2> Data</h2>
-            <ul>
-                <li>Population: 51.64 million (2023)</li>
-                <li>Capital: Seoul</li>
-                <li>Language: Korean</li>
-                <li>Currency: South Korean Won (KRW)</li>
-                <li>GDP: $1.8 trillion (2023 est.)</li>
-                <li>Major Industries: Electronics, automobiles, shipbuilding, petrochemicals, steel, textiles</li>
-                <li>Famous Landmarks: Gyeongbokgung Palace, N Seoul Tower, Bukchon Hanok Village, Jeju Island</li>
-                <li>Cultural Highlights: K-pop music, Korean cuisine (e.g., kimchi, bibimbap), traditional festivals (e.g., Chuseok)</li>
-            </ul>
-        </section>
+    
+    <div class="card data">
+      <h2>Data</h2>
+      <p><strong>Population:</strong> 51.64 million (2023)</p>
+      <p><strong>Capital:</strong> Seoul</p>
+      <p><strong>Language:</strong> Korean</p>
+      <p><strong>Currency:</strong> South Korean Won (KRW)</p>
+      <p><strong>GDP:</strong> $1.8 trillion (2023 est.)</p>
+      <p><strong>Major Industries:</strong> Electronics, automobiles, shipbuilding</p>
+      <p><strong>Landmarks:</strong> Gyeongbokgung Palace, N Seoul Tower</p>
+    </div>
 
-        <section class="weather">
-            <h2> Weather</h2>
-            <p>South Korea experiences four distinct seasons: a cold, dry winter from December to February; a hot, humid summer from June to August; and mild spring and autumn seasons. The country receives most of its rainfall during the summer monsoon season.</p>
-            </p>    
-           
-            <div class="icon-mobile">
-                <img src="images/weather-icon.png" alt="Weather Icon">
-            </div>
+   
+    <div class="card weather">
+      <h2>Weather ⛅</h2>
+      <p><strong>Temperature:</strong> 10 °C</p>
+      <p><strong>Conditions:</strong> Partly Cloudy</p>
+      <p><strong>Wind:</strong> 5 km/h</p>
+      <p><strong>Wind Chill:</strong> <span id="windChill">...</span> °C</p>
+    </div>
+  </section>
 
-            <ul>
-                <li>Winter (Dec-Feb): Cold, dry, occasional snowfall</li>
-                <li>Spring (Mar-May): Mild temperatures, blooming flowers</li>
-                <li>Summer (Jun-Aug): Hot, humid, monsoon rains</li>
-                <li>Autumn (Sep-Nov): Cool, crisp air, colorful foliage</li>
-                <li>Wind chill : <span id="windChill">Calculating...</span></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>Standard Footer content - copy right - Jiseung Kim - korea</p>
-        <p>Last modified <span id="lastModified"></span></p>
-        <p>&copy; <span id="currentYear"></span> </p>
-    </footer>
-
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Jiseung Kim – South Korea</p>
+    <p>Last Modification: <span id="lastModified"></span></p>
+  </footer>
 </body>
 </html>

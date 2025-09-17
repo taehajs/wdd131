@@ -1,110 +1,64 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-    color: #333
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #333;
 }
 
 header {
-    background-color: #004466;
-    color: #fff;
-    padding: 1.5rem;
-    text-align: center;
+  background: #c62828; /* 붉은색 */
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
+  margin: 0;
+  font-size: 2.5rem;
 }
 
-main {
-    padding: 1rem;
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+.hero {
+  position: relative;
 }
 
-section.data {
-    background-color: #e6f2ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px raba(0, 0, 0, 0.1);
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-section.data h2 {
-    margin-top: 0;
-    color: #004466;
+.card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  max-width: 260px;
 }
 
-section.data ul {
-    list-style-type: none;
-    padding: 0;
+.data {
+  top: 20px;
+  left: 20px;
 }
 
-section.data li {
-    margin-bottom: 0.5rem;
+.weather {
+  bottom: 20px;
+  right: 20px;
 }
 
-section.weather {
-    background-color: #fff0;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-section.weather h2 {
-    margin-top: 0;
-    color: #004466;
-}
-
-section.weather p {
-    margin-bottom: 1rem;
-}
-
-section.weather ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-
-.icon-mobile {
-    margin: 1rem 0;
-    text-align: center;
-}
-
-.icon-mobile img {
-    width: 60px;
-    height: auto;
+.card h2 {
+  margin-top: 0;
+  background: #2e7d32; /* 녹색 */
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
 }
 
 footer {
-    background-color: 004466;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin: 0.3rem;
-}
-
-@media (min-width: 700px) {
-  main {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .icon-mobile {
-    display: none; /* Hide mobile icon on larger screens */
-  }
-
-  section.weather h2::after {
-    content: " ⛅";
-    font-size: 1.2rem;
-    color: #ffcc00;
-  }
+  background: #c62828;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 0;
 }

@@ -1,24 +1,24 @@
-const yearSpan = document.getElementById("currentYear");
-const today = new Date();
-yearSpan.textContent = today.getFullYear();
 
-const lastModified = document.getElementById("lastModified");
-lastModified.textContent = document.lastModified;
+document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-function calculateWindChill(tempCelsius, windSpeedKmh) {
-    if(tempCelsius > 10 || windSpeedKmh < 4.8) {
-        const windChill = 
-        13.12+
-        0.6215 * tempCelsius -
-        11.37 * Math.pow(windSpeedKmh, 0.16) +
-        0.3965 * tempCelsius * Math.pow(windSpeedKmh, 0.16);
-        return windChill.toFixed(1);
-    } else {
-        return "N/A";
-    }
+
+document.getElementById("lastModified").textContent = document.lastModified;
+
+
+function calculateWindChill(tempC, windKmh) {
+  if (tempC <= 10 && windKmh > 4.8) {
+    const chill =
+      13.12 +
+      0.6215 * tempC -
+      11.37 * Math.pow(windKmh, 0.16) +
+      0.3965 * tempC * Math.pow(windKmh, 0.16);
+    return chill.toFixed(1);
+  } else {
+    return "N/A";
+  }
 }
 
-const tempCelsius = 5; // Example temperature in Celsius
-const windSpeedKmh = 20; // Example wind speed in km/h  
-const windChillElement = document.getElementById("windChill");
-windChillElement.textContent = calculateWindChill(tempCelsius, windSpeedKmh);
+const tempCelsius = 10;
+const windSpeedKmh = 5;
+document.getElementById("windChill").textContent =
+  calculateWindChill(tempCelsius, windSpeedKmh);
