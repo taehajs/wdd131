@@ -1,64 +1,49 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: Arial, sans-serif;
 }
 
 header {
+  background: #b3002d;
+  color: white;
   text-align: center;
   padding: 1rem;
-  background: #004466;
-  color: #fff;
 }
 
-header h1::after {
-  content: " 🙂";
+.hero {
+  position: relative;
+  width: 100%;
 }
 
-.seoul img {
+.hero img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+.overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.data {
+  top: 10%;
+  left: 5%;
+  max-width: 280px;
 }
 
-
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-.icon-mobile {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .icon-mobile {
-    display: block;
-    margin: 1rem 0;
-  }
+.weather {
+  bottom: 10%;
+  right: 5%;
+  max-width: 220px;
 }
 
 footer {
+  background: #b3002d;
+  color: white;
   text-align: center;
   padding: 1rem;
-  background: #eee;
-  margin-top: 2rem;
 }

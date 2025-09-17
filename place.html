@@ -12,47 +12,33 @@
     <h1>South Korea</h1>
   </header>
 
-  <section class="seoul">
-    <picture>
-      <source srcset="images/Hanriver-mobile.webp" type="image/webp" media="(max-width: 600px)">
-      <source srcset="images/Hanriver-mobile.jpg" type="image/jpeg" media="(max-width: 600px)">
-      <source srcset="images/Hanriver.webp" type="image/webp">
-      <img src="images/Hanriver.jpg" alt="Han River in Seoul">
-    </picture>
-  </section>
-
-  <main class="cards">
-    <section class="card data">
+  <section class="hero">
+    <img src="images/Hanriver.jpg" alt="Han River in Seoul">
+    <div class="overlay data">
       <h2>Data</h2>
       <ul>
-        <li>Population: 51.64 million (2023)</li>
-        <li>Capital: Seoul</li>
-        <li>Language: Korean</li>
-        <li>Currency: South Korean Won (KRW)</li>
-        <li>GDP: $1.8 trillion (2023 est.)</li>
-        <li>Major Industries: Electronics, automobiles, shipbuilding, petrochemicals, steel, textiles</li>
-        <li>Famous Landmarks: Gyeongbokgung Palace, N Seoul Tower, Bukchon Hanok Village, Jeju Island</li>
-        <li>Cultural Highlights: K-pop music, Korean cuisine, traditional festivals</li>
+        <li><strong>Population:</strong> 51.64 million (2023)</li>
+        <li><strong>Capital:</strong> Seoul</li>
+        <li><strong>Language:</strong> Korean</li>
+        <li><strong>Currency:</strong> South Korean Won (KRW)</li>
+        <li><strong>GDP:</strong> $1.8 trillion (2023 est.)</li>
+        <li><strong>Industries:</strong> Electronics, automobiles, shipbuilding, petrochemicals</li>
       </ul>
-    </section>
+    </div>
 
-    <section class="card weather">
+    <div class="overlay weather">
       <h2>Weather</h2>
-      <p>South Korea experiences four distinct seasons. Winter is cold and dry, summer is hot and humid with monsoon rains, and spring/autumn are mild.</p>
-      
+      <ul>
+        <li><strong>Temperature:</strong> 40°F</li>
+        <li><strong>Conditions:</strong> Clear</li>
+        <li><strong>Wind:</strong> 10 mph</li>
+        <li><strong>Wind Chill:</strong> <span id="windChill"></span></li>
+      </ul>
       <div class="icon-mobile">
         <img src="images/weather-icon.svg" alt="Weather Icon">
       </div>
-
-      <ul>
-        <li>Winter (Dec-Feb): Cold, dry, occasional snowfall</li>
-        <li>Spring (Mar-May): Mild, blooming flowers</li>
-        <li>Summer (Jun-Aug): Hot, humid, monsoon rains</li>
-        <li>Autumn (Sep-Nov): Cool, crisp air, colorful foliage</li>
-        <li>Wind chill: <span id="windChill">Calculating...</span></li>
-      </ul>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; <span id="currentYear"></span> - Jiseung Kim - Korea</p>
