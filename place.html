@@ -12,38 +12,42 @@
     <h1>South Korea</h1>
   </header>
 
-  <section class="hero">
-    <img src="images/Hanriver.jpg" alt="Han River in Seoul">
-    <div class="overlay data">
-      <h2>Data</h2>
-      <ul>
-        <li><strong>Population:</strong> 51.64 million (2023)</li>
-        <li><strong>Capital:</strong> Seoul</li>
-        <li><strong>Language:</strong> Korean</li>
-        <li><strong>Currency:</strong> South Korean Won (KRW)</li>
-        <li><strong>GDP:</strong> $1.8 trillion (2023 est.)</li>
-        <li><strong>Industries:</strong> Electronics, automobiles, shipbuilding, petrochemicals</li>
-      </ul>
-    </div>
-
-    <div class="overlay weather">
-      <h2>Weather</h2>
-      <ul>
-        <li><strong>Temperature:</strong> 40°F</li>
-        <li><strong>Conditions:</strong> Clear</li>
-        <li><strong>Wind:</strong> 10 mph</li>
-        <li><strong>Wind Chill:</strong> <span id="windChill"></span></li>
-      </ul>
-      <div class="icon-mobile">
-        <img src="images/weather-icon.png" alt="Weather Icon">
+  <main>
+    <section class="hero">
+      <img src="images/Hanriver.jpg" 
+           srcset="images/Hanriver-small.jpg 480w, images/Hanriver.jpg 1024w"
+           sizes="(max-width: 600px) 480px, 1024px"
+           alt="Han River in Seoul">
+      <div class="overlay data">
+        <h2>Data</h2>
+        <ul>
+          <li><strong>Population:</strong> 51.64 million (2023)</li>
+          <li><strong>Capital:</strong> Seoul</li>
+          <li><strong>Language:</strong> Korean</li>
+          <li><strong>Currency:</strong> South Korean Won (KRW)</li>
+          <li><strong>GDP:</strong> $1.8 trillion (2023 est.)</li>
+          <li><strong>Industries:</strong> Electronics, automobiles, shipbuilding, petrochemicals</li>
+        </ul>
       </div>
-    </div>
-  </section>
+
+      <div class="overlay weather">
+        <h2>Weather</h2>
+        <ul>
+          <li><strong>Temperature:</strong> 40°F</li>
+          <li><strong>Conditions:</strong> Clear</li>
+          <li><strong>Wind:</strong> 10 mph</li>
+          <li><strong>Wind Chill:</strong> <span id="windChill"></span></li>
+        </ul>
+        <div class="icon-mobile">
+          <img src="images/weather-icon.png" alt="Weather Icon">
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; <span id="currentYear"></span> - Jiseung Kim - Korea</p>
     <p>Last modified <span id="lastModified"></span></p>
   </footer>
-  
 </body>
 </html>
