@@ -3,44 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>South Korea</title>
+  <title>Place - Seoul</title>
   <link rel="stylesheet" href="styles/place.css">
-  <script src="js/place.js" defer></script>
 </head>
-
 <body>
   <header>
-    <h1>South Korea</h1>
+    <h1>Welcome to Seoul</h1>
   </header>
 
-  <section class="hero">
-    <img src="images/Hanriver.jpg" alt="Han River in Seoul" class="hero-img">
+  <main>
+    <section class="seoul">
+      <picture>
+        <source srcset="images/Hanriver-mobile.webp" type="image/webp" media="(max-width: 600px)">
+        <source srcset="images/Hanriver-mobile.jpg" type="image/jpeg" media="(max-width: 600px)">
+        <source srcset="images/Hanriver.webp" type="image/webp">
+        <img src="images/Hanriver.jpg" alt="Han River in Seoul">
+      </picture>
+    </section>
 
-    
-    <div class="card data">
-      <h2>Data</h2>
-      <p><strong>Population:</strong> 51.64 million (2023)</p>
-      <p><strong>Capital:</strong> Seoul</p>
+    <section class="data card">
+      <h2>City Data</h2>
+      <p><strong>Population:</strong> 9.7M</p>
+      <p><strong>Area:</strong> 605 km²</p>
       <p><strong>Language:</strong> Korean</p>
-      <p><strong>Currency:</strong> South Korean Won (KRW)</p>
-      <p><strong>GDP:</strong> $1.8 trillion (2023 est.)</p>
-      <p><strong>Major Industries:</strong> Electronics, automobiles, shipbuilding</p>
-      <p><strong>Landmarks:</strong> Gyeongbokgung Palace, N Seoul Tower</p>
-    </div>
+      <p><strong>Currency:</strong> KRW</p>
+    </section>
 
-   
-    <div class="card weather">
-      <h2>Weather ⛅</h2>
-      <p><strong>Temperature:</strong> 10 °C</p>
-      <p><strong>Conditions:</strong> Partly Cloudy</p>
-      <p><strong>Wind:</strong> 5 km/h</p>
-      <p><strong>Wind Chill:</strong> <span id="windChill">...</span> °C</p>
-    </div>
-  </section>
+    <section class="weather card">
+      <h2>Weather</h2>
+      <p><strong>Temperature:</strong> 40°F</p>
+      <p><strong>Wind Speed:</strong> 10 mph</p>
+      <p><strong>Wind Chill:</strong> <span id="windChill"></span></p>
+      <div class="icon-mobile">
+        <img src="images/weather-icon.svg" alt="Weather Icon">
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; <span id="currentYear"></span> Jiseung Kim – South Korea</p>
-    <p>Last Modification: <span id="lastModified"></span></p>
+    <p>&copy; <span id="currentYear"></span> Seoul Info</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
   </footer>
+
+  <script src="scripts/place.js"></script>
 </body>
 </html>

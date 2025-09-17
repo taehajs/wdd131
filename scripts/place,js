@@ -1,24 +1,17 @@
+const tempF = 40;
+const windSpeed = 10;
 
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-
-document.getElementById("lastModified").textContent = document.lastModified;
-
-
-function calculateWindChill(tempC, windKmh) {
-  if (tempC <= 10 && windKmh > 4.8) {
-    const chill =
-      13.12 +
-      0.6215 * tempC -
-      11.37 * Math.pow(windKmh, 0.16) +
-      0.3965 * tempC * Math.pow(windKmh, 0.16);
-    return chill.toFixed(1);
-  } else {
-    return "N/A";
-  }
+function calculateWindChill(t, s) {
+  return 35.74 + 0.6215*t - 35.75*Math.pow(s,0.16) + 0.4275*t*Math.pow(s,0.16);
 }
 
-const tempCelsius = 10;
-const windSpeedKmh = 5;
-document.getElementById("windChill").textContent =
-  calculateWindChill(tempCelsius, windSpeedKmh);
+const windChillSpan = document.getElementById("windChill");
+
+if (tempF <= 50 && windSpeed > 3) {
+  windChillSpan.textContent = calculateWindChill(tempF, windSpeed).toFixed(1) + " °F";
+} else {
+  windChillSpan.textContent = "N/A";
+}
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+document.getElementById("lastModified").textContent = document.lastModified;
