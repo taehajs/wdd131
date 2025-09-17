@@ -1,11 +1,9 @@
-const tempF = 40; 
-const windSpeed = 10; 
-
+const tempF = 40;
+const windSpeed = 10;
 
 function calculateWindChill(t, s) {
   return 35.74 + 0.6215*t - 35.75*Math.pow(s,0.16) + 0.4275*t*Math.pow(s,0.16);
 }
-
 
 const windChillSpan = document.getElementById("windChill");
 
@@ -16,6 +14,4 @@ if (tempF <= 50 && windSpeed > 3) {
 }
 
 document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-
 document.getElementById("lastModified").textContent = document.lastModified;

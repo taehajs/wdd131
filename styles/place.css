@@ -1,7 +1,7 @@
 :root {
   --primary-color: #b3002d;
   --overlay-bg: rgba(255, 255, 255, 0.9);
-  --font-family: Arial, sans-serif;
+  --font-family: 'Roboto', Arial, sans-serif;
 }
 
 body {
@@ -63,15 +63,11 @@ footer {
   padding: 1rem;
 }
 
-
 @media (max-width: 768px) {
   .data, .weather {
     position: static;
     max-width: 90%;
     margin: 1rem auto;
-  }
-  .hero {
-    padding-bottom: 1rem;
   }
   .icon-mobile img {
     width: 50px;
