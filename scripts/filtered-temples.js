@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const temples = [
     { templeName: "Aba Nigeria", location: "Aba, Nigeria", dedicated: "2005, August, 7", area: 11500, imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg" },
     { templeName: "Manti Utah", location: "Manti, Utah, United States", dedicated: "1888, May, 21", area: 74792, imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg" },
@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
     { templeName: "Rome Italy", location: "Rome, Italy", dedicated: "2019, March, 10", area: 41010, imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/rome-italy-temple/rome-italy-temple-3545-thumb.jpg" }
   ];
 
-  const container = document.querySelector("#temple-cards");
+  const container = document.getElementById("temple-cards");
 
   function getYear(dedicated) {
-    const match = dedicated.match(/\b\d{4}\b/);
-    return match ? parseInt(match[0]) : 0;
+    const year = dedicated.split(",")[0];
+    return parseInt(year);
   }
 
   function displayTemples(list) {
     container.innerHTML = "";
-    if(list.length === 0) {
-      container.innerHTML = `<div class="no-results">No temples match this filter.</div>`;
+    if (list.length === 0) {
+      container.innerHTML = "<p>No temples match this filter.</p>";
       return;
     }
     list.forEach(t => {
@@ -42,28 +42,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function filterTemples(type) {
-    if(type === "old") return temples.filter(t => getYear(t.dedicated) < 1900);
-    if(type === "new") return temples.filter(t => getYear(t.dedicated) > 2000);
-    if(type === "large") return temples.filter(t => t.area > 90000);
-    if(type === "small") return temples.filter(t => t.area < 10000);
-    return temples; // home = all
+    switch(type) {
+      case "old": return temples.filter(t => getYear(t.dedicated) < 1900);
+      case "new": return temples.filter(t => getYear(t.dedicated) > 2000);
+      case "large": return temples.filter(t => t.area > 90000);
+      case "small": return temples.filter(t => t.area < 10000);
+      default: return temples;
+    }
   }
 
   displayTemples(temples);
 
-  const nav = document.querySelector("nav");
-  nav.addEventListener("click", e => {
-    const link = e.target.closest("a[data-filter]");
-    if(!link) return;
-    e.preventDefault();
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const filter = link.dataset.filter;
+      displayTemples(filterTemples(filter));
 
-    const filter = link.dataset.filter;
-    displayTemples(filterTemples(filter));
-
-    nav.querySelectorAll("a").forEach(a => a.classList.remove("active"));
-    link.classList.add("active");
+      navLinks.forEach(a => a.classList.remove("active"));
+      link.classList.add("active");
+    });
   });
 
-  document.querySelector("#year").textContent = new Date().getFullYear();
-  document.querySelector("#lastModified").textContent = document.lastModified;
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = document.lastModified;
 });
