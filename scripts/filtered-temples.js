@@ -51,10 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  
   displayTemples(temples);
 
-
+  
   const navLinks = document.querySelectorAll("nav a");
   navLinks.forEach(link => {
     link.addEventListener("click", e => {
