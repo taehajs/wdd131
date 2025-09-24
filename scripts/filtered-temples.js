@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("temple-cards");
 
   function getYear(dedicated) {
-    const year = dedicated.split(",")[0];
-    return parseInt(year);
+    const match = dedicated.match(/\b\d{4}\b/);
+    return match ? parseInt(match[0], 10) : NaN;
   }
 
   function displayTemples(list) {
     container.innerHTML = "";
-    if (list.length === 0) {
+    if (!list || list.length === 0) {
       container.innerHTML = "<p>No temples match this filter.</p>";
       return;
     }
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "card";
       card.innerHTML = `
         <img src="${t.imageUrl}" alt="${t.templeName}" loading="lazy">
-        <div class="card-body">
+        <div class="card-content">
           <h2>${t.templeName}</h2>
           <p><strong>Location:</strong> ${t.location}</p>
           <p><strong>Dedicated:</strong> ${t.dedicated}</p>
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function filterTemples(type) {
-    switch(type) {
+    switch (type) {
       case "old": return temples.filter(t => getYear(t.dedicated) < 1900);
       case "new": return temples.filter(t => getYear(t.dedicated) > 2000);
       case "large": return temples.filter(t => t.area > 90000);
@@ -51,20 +51,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  
   displayTemples(temples);
+
 
   const navLinks = document.querySelectorAll("nav a");
   navLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const filter = link.dataset.filter;
+      const filter = e.currentTarget.dataset.filter;
       displayTemples(filterTemples(filter));
-
       navLinks.forEach(a => a.classList.remove("active"));
-      link.classList.add("active");
+      e.currentTarget.classList.add("active");
     });
   });
 
+ 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("lastModified").textContent = document.lastModified;
 });
