@@ -13,32 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const container = document.querySelector("#temple-cards");
-  if (!container) {
-    console.error("ERROR: #temple-cards element not found.");
-    return;
-  }
 
   function getYear(dedicated) {
-    const match = String(dedicated).match(/\b(\d{4})\b/);
-    return match ? Number(match[1]) : NaN;
+    const match = dedicated.match(/\b\d{4}\b/);
+    return match ? parseInt(match[0]) : 0;
   }
 
   function displayTemples(list) {
     container.innerHTML = "";
-    if (!list || list.length === 0) {
+    if(list.length === 0) {
       container.innerHTML = `<div class="no-results">No temples match this filter.</div>`;
       return;
     }
-    list.forEach(temple => {
+    list.forEach(t => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
+        <img src="${t.imageUrl}" alt="${t.templeName}" loading="lazy">
         <div class="card-body">
-          <h2>${temple.templeName}</h2>
-          <p><strong>Location:</strong> ${temple.location}</p>
-          <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
-          <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
+          <h2>${t.templeName}</h2>
+          <p><strong>Location:</strong> ${t.location}</p>
+          <p><strong>Dedicated:</strong> ${t.dedicated}</p>
+          <p><strong>Area:</strong> ${t.area.toLocaleString()} sq ft</p>
         </div>
       `;
       container.appendChild(card);
@@ -46,36 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function filterTemples(type) {
-    if (type === "old") return temples.filter(t => getYear(t.dedicated) < 1900);
-    if (type === "new") return temples.filter(t => getYear(t.dedicated) > 2000);
-    if (type === "large") return temples.filter(t => t.area > 90000);
-    if (type === "small") return temples.filter(t => t.area < 10000);
-    return temples;
+    if(type === "old") return temples.filter(t => getYear(t.dedicated) < 1900);
+    if(type === "new") return temples.filter(t => getYear(t.dedicated) > 2000);
+    if(type === "large") return temples.filter(t => t.area > 90000);
+    if(type === "small") return temples.filter(t => t.area < 10000);
+    return temples; // home = all
   }
-
 
   displayTemples(temples);
 
- 
   const nav = document.querySelector("nav");
-  if (nav) {
-    nav.addEventListener("click", e => {
-      const link = e.target.closest("a[data-filter]");
-      if (!link) return;
-      e.preventDefault();
+  nav.addEventListener("click", e => {
+    const link = e.target.closest("a[data-filter]");
+    if(!link) return;
+    e.preventDefault();
 
-      const filter = link.getAttribute("data-filter");
-      displayTemples(filterTemples(filter));
+    const filter = link.dataset.filter;
+    displayTemples(filterTemples(filter));
 
-      nav.querySelectorAll("a").forEach(a => a.classList.remove("active"));
-      link.classList.add("active");
-    });
-  }
+    nav.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+    link.classList.add("active");
+  });
 
-  
-  const yearSpan = document.querySelector("#year");
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-  const modifiedSpan = document.querySelector("#lastModified");
-  if (modifiedSpan) modifiedSpan.textContent = document.lastModified;
+  document.querySelector("#year").textContent = new Date().getFullYear();
+  document.querySelector("#lastModified").textContent = document.lastModified;
 });
