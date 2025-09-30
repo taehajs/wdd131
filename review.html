@@ -4,26 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Review Confirmation</title>
-  <link rel="stylesheet" href="form.css">
-  <script defer src="form.js"></script>
+ <link rel="stylesheet" href="styles/form.css">
+ <script defer src="scripts/form.js"></script>
+
 </head>
 <body>
   <main>
     <h1>Review Submitted!</h1>
-    <section id="reviewSummary"></section>
+  
   </main>
 
   <footer>
-    <p>&copy;2025 Jiseung KIM | Korea</p>
-    <p>Last Modification</p>
+    <p>&copy;2025 Jiseung KIM | South Korea</p>
+    <p id="lastModified">Last Modification: </p>
   </footer>
 
   <script>
+    const lastModElem = document.getElementById('lastModified');
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    lastModElem.textContent = `Last Modification: ${yyyy}-${mm}-${dd}`;
+
+
+    let count = parseInt(localStorage.getItem('reviewCount')) || 0;
+    count++;
+    localStorage.setItem('reviewCount', count);
 
     const params = new URLSearchParams(window.location.search);
-
-
-    const summary = document.getElementById("reviewSummary");
+    const summary = document.createElement('div');
     summary.innerHTML = `
       <h2>Your Review Details</h2>
       <p><strong>Product:</strong> ${params.get("productName")}</p>
@@ -32,7 +42,9 @@
       <p><strong>Features:</strong> ${params.getAll("features").join(", ") || "None"}</p>
       <p><strong>Review:</strong> ${params.get("review") || "No written review"}</p>
       <p><strong>User Name:</strong> ${params.get("username") || "Anonymous"}</p>
+      <p><strong>Total Reviews Submitted:</strong> ${count}</p>
     `;
+    document.querySelector('main').appendChild(summary);
   </script>
 </body>
 </html>
