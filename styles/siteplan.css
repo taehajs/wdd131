@@ -1,4 +1,78 @@
-.wireframe {
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-family: "Trebuchet MS", sans-serif;
+  margin: 0;
+}
+
+header .tagline {
+  font-style: italic;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+section {
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #003366;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+
+.color-sample {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  margin: 5px 10px 5px 0;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+
+.color-sample.navy {
+  background-color: #003366;
+}
+
+.color-sample.gold {
+  background-color: #ffcc00;
+}
+
+
+.heading-font {
+  font-family: "Trebuchet MS", sans-serif;
+  color: #003366;
+}
+
+.body-font {
+  font-family: Arial, sans-serif;
+}
+
+
+.wireframes {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -7,33 +81,32 @@
 
 .wireframe-box {
   width: 320px;
-  background: #e8f0ff;
-  padding: 20px;
+  background: #eaf0ff;
+  padding: 15px;
   border-radius: 10px;
   border: 2px solid #003366;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 .wireframe-box h3 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
-.wireframe-element {
+.wf {
   min-height: 50px;
-  margin: 10px 0;
-  border: 2px dashed #999;
-  border-radius: 6px;
-  padding: 15px;
-  background-color: #fff;
+  margin: 8px 0;
+  border: 2px dashed #666;
+  border-radius: 5px;
+  padding: 10px;
   text-align: center;
   font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.wireframe-element.header { background-color: #003366; color: #fff; }
-.wireframe-element.nav { background-color: #0055a5; color: #fff; }
-.wireframe-element.hero { background-color: #ffcc00; color: #333; min-height: 80px; }
-.wireframe-element.main { background-color: #cce0ff; min-height: 120px; }
-.wireframe-element.columns { background-color: #b3d1ff; min-height: 100px; }
-.wireframe-element.footer { background-color: #003366; color: #fff; min-height: 50px; }
+.wf.header { background: #003366; color: #fff; }
+.wf.nav { background: #0055a5; color: #fff; }
+.wf.hero { background: #ffcc00; color: #333; min-height: 80px; }
+.wf.main { background: #d0e2ff; min-height: 120px; }
+.wf.columns { background: #aacfff; min-height: 100px; }
+.wf.footer { background: #003366; color: #fff; }
