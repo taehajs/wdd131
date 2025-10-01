@@ -52,24 +52,32 @@ h1, h2, h3 {
 }
 
 .wireframe-box {
-  border: 2px dashed #999;
-  background: #fafafa;
-  width: 280px;
+  border: 2px solid #003366;
+  background: #f9f9f9;
+  width: 300px;
   padding: 15px;
-  text-align: center;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .wireframe-box h3 {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .wireframe-element {
-  border: 1px solid #ccc;
+  border: 2px dashed #999;
   background-color: #eaeaea;
   padding: 10px;
-  margin: 5px 0;
-  border-radius: 4px;
-  font-size: 0.95rem;
+  margin: 8px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
 }
+
+.wireframe-element.header { background-color: #003366; color: #fff; }
+.wireframe-element.nav { background-color: #0055a5; color: #fff; }
+.wireframe-element.hero { background-color: #ffcc00; color: #333; }
+.wireframe-element.main { background-color: #cccccc; }
+.wireframe-element.columns { background-color: #dddddd; }
+.wireframe-element.footer { background-color: #003366; color: #fff; }
