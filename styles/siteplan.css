@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  background-color: #f4f6f9;
   color: #333;
   margin: 0;
   padding: 20px;
@@ -25,7 +25,7 @@ h1, h2, h3 {
   padding: 15px;
   background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .color-wrapper {
