@@ -1,42 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
 
- 
   const highlightsContainer = document.getElementById("highlight-container");
   if (highlightsContainer) {
+    
     const highlights = [
-      "Messi scores an amazing goal!",
-      "Ronaldo breaks a new record!",
-      "Son leads Tottenham to victory!"
+      "https://youtu.be/nA8wHQvHPJU?si=nxGF4-coQJMY2KCg", 
+      "https://youtu.be/mmeLCAP74KA?si=9SG1HdBRlTmRNaDe", 
+      "https://youtu.be/JA1E0631-lc?si=8LI4_ALq0UGELo5T"  
     ];
-    highlights.forEach(item => {
-      const p = document.createElement("p");
-      p.textContent = item;
-      highlightsContainer.appendChild(p);
+
+    highlights.forEach(link => {
+      const iframe = document.createElement("iframe");
+      iframe.src = link;
+      iframe.width = "560";
+      iframe.height = "315";
+      iframe.frameBorder = "0";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.style.marginBottom = "10px";
+      highlightsContainer.appendChild(iframe);
     });
   }
 
+ 
   const playerList = document.getElementById("player-list");
   const playerDetails = document.getElementById("player-details");
 
   if (playerList && playerDetails) {
     const players = [
-      { name: "Lionel Messi", position: "Forward", country: "Argentina" },
-      { name: "Cristiano Ronaldo", position: "Forward", country: "Portugal" },
-      { name: "Son Heung-min", position: "Forward", country: "South Korea" }
+      { 
+        name: "Lionel Messi", 
+        position: "Forward", 
+        country: "Argentina",
+        image: "images/messi.jpg" 
+      },
+      { 
+        name: "Cristiano Ronaldo", 
+        position: "Forward", 
+        country: "Portugal",
+        image: "images/ronaldo.jpg" 
+      },
+      { 
+        name: "Son Heung-min", 
+        position: "Forward", 
+        country: "South Korea",
+        image: "images/son.jpg" 
+      }
     ];
 
-
-    players.forEach((player, index) => {
+   
+    players.forEach((player) => {
       const li = document.createElement("li");
       li.textContent = player.name;
-      li.style.cursor = "pointer"; 
-      li.addEventListener("click", () => {
-        displayPlayerDetails(player);
-      });
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => displayPlayerDetails(player));
       playerList.appendChild(li);
     });
 
-  
+ 
     const lastPlayer = localStorage.getItem("lastViewedPlayer");
     if (lastPlayer) {
       displayPlayerDetails(JSON.parse(lastPlayer));
@@ -48,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${player.name}</h3>
         <p>Position: ${player.position}</p>
         <p>Country: ${player.country}</p>
+        <img src="${player.image}" alt="${player.name}" style="max-width:200px; display:block; margin:10px auto; border-radius:8px;">
+        <!-- <-- 여기에 선수 사진 표시됨 -->
       `;
       localStorage.setItem("lastViewedPlayer", JSON.stringify(player));
     }
@@ -68,54 +91,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
-
-
-function showPlayerDetails(index) {
-  const details = document.getElementById("player-details");
-  const player = players[index];
-  if (details) {
-    details.innerHTML = `<h3>${player.name}</h3>
-                         <p>Position: ${player.position}</p>
-                         <p>Country: ${player.country}</p>`;
-    localStorage.setItem("lastViewedPlayer", JSON.stringify(player));
-  }
-}
-
-function restoreLastViewedPlayer() {
-  const last = localStorage.getItem("lastViewedPlayer");
-  if (last) {
-    const player = JSON.parse(last);
-    const details = document.getElementById("player-details");
-    if (details) {
-      details.innerHTML = `<h3>${player.name}</h3>
-                           <p>Position: ${player.position}</p>
-                           <p>Country: ${player.country}</p>`;
-    }
-  }
-}
-
-
-function handleQuiz() {
-  const form = document.getElementById("quiz-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const answer = Number(form.players.value);
-      const result = document.getElementById("quiz-result");
-      if (answer === 11) {
-        result.textContent = "Correct! A team has 11 players.";
-      } else {
-        result.textContent = "Incorrect. Try again!";
-      }
-    });
-  }
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadHighlights();
-  loadPlayers();
-  restoreLastViewedPlayer();
-  handleQuiz();
 });
