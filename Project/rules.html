@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Soccer World - Rules</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
-    <h1>Soccer World</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Players.html">Players</a></li>
-        <li><a href="rules.html">Rules</a></li>
-        <li><a href="references.html">References</a></li>
-      </ul>
-    </nav>
+    <div class="header-inner">
+      <h1>Soccer World</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Players.html">Players</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h2>Soccer Rules & Positions</h2>
-    <ul id="rules-list">
-      <li>Rule 1: Each team has 11 players.</li>
-      <li>Rule 2: Matches last 90 minutes.</li>
-      <li>Rule 3: The offside rule applies.</li>
-    
-    </ul>
+  <main id="main">
+    <section class="section">
+      <h2>Soccer Rules & Positions</h2>
+      <ul id="rules-list" class="rules-list">
+        <li>Each team has 11 players.</li>
+        <li>Matches last 90 minutes (2 halves of 45 mins).</li>
+        <li>The offside rule applies.</li>
+      </ul>
 
-    <section>
-      <h3>Quick Quiz</h3>
-      <form id="quiz-form">
-        <label>How many players are on a soccer team?
-          <input type="number" name="players" required>
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      <p id="quiz-result"></p>
+      <section class="quiz">
+        <h3>Quick Quiz</h3>
+        <form id="quiz-form">
+          <label for="players-count">How many players are on a soccer team?</label>
+          <input id="players-count" type="number" name="players" required min="1" max="99">
+          <button type="submit">Submit</button>
+        </form>
+        <p id="quiz-result" class="quiz-result" aria-live="polite"></p>
+      </section>
     </section>
   </main>
 

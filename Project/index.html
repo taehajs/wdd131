@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Soccer World - Home</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
-    <h1>Soccer World</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Players.html">Players</a></li>
-        <li><a href="rules.html">Rules</a></li>
-        <li><a href="references.html">References</a></li>
-      </ul>
-    </nav>
+    <div class="header-inner">
+      <h1>Soccer World</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Players.html">Players</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
+  <main id="main">
+    <section class="hero">
       <h2>Welcome to Soccer World</h2>
-      <p>Explore the world of soccer – history, players, rules, and my own experiences playing the game!</p>
-      <img src="images/soccer-field.jpg" alt="Soccer Field" loading="lazy">
+      <p>Explore the world of soccer — history, players, rules, and my own experiences.</p>
+      <img src="images/soccer-field.jpg" alt="Soccer field" loading="lazy">
     </section>
 
-    <section>
+    <section class="section highlights">
       <h2>Latest Highlights</h2>
-      <div id="highlight-container">
+      <div id="highlight-container" class="highlight-grid">
     
       </div>
+      <p class="hint">Click the video</p>
     </section>
   </main>
 
