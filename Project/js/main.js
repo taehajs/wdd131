@@ -1,61 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
+ 
   const highlightsContainer = document.getElementById("highlight-container");
   if (highlightsContainer) {
     const highlights = [
-      { type: "video", src: "https://www.youtube.com/embed/nA8wHQvHPJU" },
-      { type: "video", src: "https://www.youtube.com/embed/mmeLCAP74KA" },
-      { type: "video", src: "https://www.youtube.com/embed/JA1E0631-lc" }
+      { 
+        name: "Lionel Messi Highlight",
+        video: "https://www.youtube.com/embed/nA8wHQvHPJU"
+      },
+      { 
+        name: "Cristiano Ronaldo Highlight",
+        video: "https://www.youtube.com/embed/mmeLCAP74KA"
+      },
+      { 
+        name: "Son Heung-min Highlight",
+        video: "https://www.youtube.com/embed/JA1E0631-lc"
+      }
     ];
 
     highlights.forEach(item => {
-      if (item.type === "video") {
-        const iframe = document.createElement("iframe");
-        iframe.src = item.src;
-        iframe.width = "560";
-        iframe.height = "315";
-        iframe.frameBorder = "0";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        iframe.style.marginBottom = "10px";
-        highlightsContainer.appendChild(iframe);
-      }
+      const card = document.createElement("div");
+      card.classList.add("video-card");
+      card.innerHTML = `
+        <h3 style="margin-bottom:10px;">${item.name}</h3>
+        <iframe 
+          src="${item.video}" 
+          width="560" height="315" 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `;
+      highlightsContainer.appendChild(card);
     });
   }
 
- 
+  
   const playerList = document.getElementById("player-list");
   const playerDetails = document.getElementById("player-details");
 
   if (playerList && playerDetails) {
     const players = [
-      { name: "Lionel Messi", position: "Forward", country: "Argentina", image: "images/messi.jpg" },
-      { name: "Cristiano Ronaldo", position: "Forward", country: "Portugal", image: "images/ronaldo.jpg" },
-      { name: "Son Heung-min", position: "Forward", country: "South Korea", image: "images/son.jpg" }
+      { 
+        name: "Lionel Messi", 
+        position: "Forward", 
+        country: "Argentina",
+        image: "images/messi.jpg" 
+      },
+      { 
+        name: "Cristiano Ronaldo", 
+        position: "Forward", 
+        country: "Portugal",
+        image: "images/ronaldo.jpg" 
+      },
+      { 
+        name: "Son Heung-min", 
+        position: "Forward", 
+        country: "South Korea",
+        image: "images/son.jpg" 
+      }
     ];
 
-   
-    playerList.innerHTML = "";
-
-    players.forEach(player => {
+    players.forEach((player) => {
       const btn = document.createElement("button");
       btn.textContent = player.name;
-      btn.style.margin = "5px";
-      btn.style.padding = "5px 10px";
-      btn.style.border = "2px solid #003366";
-      btn.style.borderRadius = "5px";
-      btn.style.backgroundColor = "#ffcc00";
-      btn.style.cursor = "pointer";
+      btn.classList.add("player-btn");
       btn.addEventListener("click", () => displayPlayerDetails(player));
       playerList.appendChild(btn);
     });
 
- 
     const lastPlayer = localStorage.getItem("lastViewedPlayer");
-    if (lastPlayer) displayPlayerDetails(JSON.parse(lastPlayer));
+    if (lastPlayer) {
+      displayPlayerDetails(JSON.parse(lastPlayer));
+    }
 
- 
     function displayPlayerDetails(player) {
       playerDetails.innerHTML = `
         <h3>${player.name}</h3>
@@ -67,16 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
+  
   const quizForm = document.getElementById("quiz-form");
   if (quizForm) {
     quizForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const answer = Number(quizForm.players.value);
       const result = document.getElementById("quiz-result");
-      result.textContent = (answer === 11) 
-        ? "Correct! A team has 11 players." 
-        : "Incorrect. Try again!";
+      if (answer === 11) {
+        result.textContent = "Correct! A team has 11 players.";
+      } else {
+        result.textContent = "Incorrect. Try again!";
+      }
     });
   }
 
